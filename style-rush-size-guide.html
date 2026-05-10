@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style Rush — Size Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #e8e4df;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .controls {
+    margin-bottom: 28px;
+    display: flex;
+    gap: 12px;
+  }
+
+  .btn {
+    padding: 11px 24px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .btn-dark { background: #0d0d0d; color: white; }
+  .btn-dark:hover { background: #333; }
+  .btn-sage { background: #8aab96; color: white; }
+  .btn-sage:hover { background: #739e82; }
+
+  /* ── THE GRAPHIC ── */
+  #size-guide {
+    width: 600px;
+    background: #faf7f2;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.18);
+    position: relative;
+  }
+
+  /* Top accent bar */
+  .top-bar {
+    height: 6px;
+    background: linear-gradient(90deg, #0d0d0d 0%, #3d3d3d 40%, #8aab96 70%, #c9a96e 100%);
+  }
+
+  /* Header */
+  .header {
+    background: #0d0d0d;
+    padding: 28px 36px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px; left: 30%;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(138,171,150,0.08);
+  }
+
+  .brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 3px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .brand-clover { font-size: 20px; }
+  .brand-username {
+    font-size: 11px;
+    color: #8aab96;
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+
+  .header-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+    letter-spacing: 1px;
+  }
+  .header-title em {
+    font-style: italic;
+    color: #c9a96e;
+  }
+  .header-sub {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* Body */
+  .body { padding: 28px 36px 32px; }
+
+  /* Note box */
+  .note-box {
+    background: #f0f7f3;
+    border-left: 3px solid #8aab96;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 22px;
+    font-size: 12px;
+    color: #3d6b52;
+    line-height: 1.6;
+  }
+  .note-box strong { font-weight: 700; display: block; margin-bottom: 3px; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* Table */
+  .size-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .size-table thead tr {
+    background: #0d0d0d;
+    color: white;
+  }
+  .size-table thead th {
+    padding: 12px 14px;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .size-table thead th:first-child { text-align: left; border-radius: 6px 0 0 0; }
+  .size-table thead th:last-child { border-radius: 0 6px 0 0; }
+
+  .size-table tbody tr {
+    border-bottom: 1px solid #f0ece6;
+    transition: background 0.15s;
+  }
+  .size-table tbody tr:hover { background: #f5f0ea; }
+  .size-table tbody tr:last-child { border-bottom: none; }
+
+  .size-table tbody td {
+    padding: 13px 14px;
+    text-align: center;
+    color: #444;
+    font-size: 13px;
+  }
+  .size-table tbody td:first-child { text-align: left; }
+
+  /* Size badge */
+  .size-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 28px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  .xs { background: #e8f4ee; color: #2d6a4f; }
+  .s  { background: #dff0e8; color: #1f5c42; }
+  .m  { background: #0d0d0d; color: white; }
+  .l  { background: #3d3d3d; color: white; }
+  .xl { background: #c9a96e22; color: #7a5c1e; border: 1.5px solid #c9a96e; }
+  .xxl { background: #c9a96e44; color: #6b4e15; border: 1.5px solid #c9a96e; }
+  .xxxl { background: #c9a96e; color: #3d2a00; }
+
+  /* Measurement columns */
+  .meas-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0d0d0d;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ddd, transparent);
+    margin: 20px 0;
+  }
+
+  /* How to measure */
+  .how-section { margin-top: 20px; }
+  .how-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #aaa;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .how-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .how-item {
+    background: #f5f0ea;
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .how-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .how-text strong { font-size: 12px; font-weight: 700; color: #0d0d0d; display: block; margin-bottom: 2px; }
+  .how-text span { font-size: 11px; color: #888; line-height: 1.5; }
+
+  /* Footer */
+  .footer {
+    background: #0d0d0d;
+    padding: 16px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .footer-note {
+    font-size: 10px;
+    color: #666;
+    text-align: right;
+    line-height: 1.6;
+  }
+  .footer-note span { color: #8aab96; }
+
+  /* Bottom accent */
+  .bottom-bar {
+    height: 4px;
+    background: linear-gradient(90deg, #c9a96e, #8aab96, #0d0d0d);
+  }
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button class="btn btn-dark" onclick="downloadGuide()">⬇️ Download Size Guide PNG</button>
+</div>
+
+<div id="size-guide">
+  <div class="top-bar"></div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand-row">
+      <div class="brand-name"><span class="brand-clover">🍀</span> STYLE RUSH.</div>
+      <div class="brand-username">@stylerush.mavs</div>
+    </div>
+    <div class="header-title">Size <em>&</em> Fit<br>Guide</div>
+    <div class="header-sub">Actual Body Measurements · Inches</div>
+  </div>
+
+  <!-- Body -->
+  <div class="body">
+
+    <div class="note-box">
+      <strong>📌 Important Note</strong>
+      We do not solely base on size tags as they vary per brand. Always refer to the actual measurements listed in each item for the best fit. When in doubt, size up! 💗
+    </div>
+
+    <!-- Size Table -->
+    <table class="size-table">
+      <thead>
+        <tr>
+          <th>Size</th>
+          <th>Bust</th>
+          <th>Waist</th>
+          <th>Hips</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="size-badge xs">XS</span></td>
+          <td><span class="meas-val">30–32"</span></td>
+          <td><span class="meas-val">24–26"</span></td>
+          <td><span class="meas-val">32–34"</span></td>
+        </tr>
+        <tr>
+          <td><span class="size-badge s">S</span></td>
+          <td><span class="meas-val">32–34"</span></td>
+          <td><span class="meas-val">26–28"</span></td>
+          <td><span class="meas-val">34–36"</span></td>
+        </tr>
+        <tr>
+          <td><span class="size-badge m">M</span></td>
+          <td><span class="meas-val">34–36"</span></td>
+          <td><span class="meas-val">28–30"</span></td>
+          <td><span class="meas-val">36–38"</span></td>
+        </tr>
+        <tr>
+          <td><span class="size-badge l">L</span></td>
+          <td><span class="meas-val">36–38"</span></td>
+          <td><span class="meas-val">30–32"</span></td>
+          <td><span class="meas-val">38–40"</span></td>
+        </tr>
+        <tr>
+          <td><span class="size-badge xl">XL</span></td>
+          <td><span class="meas-val">38–40"</span></td>
+          <td><span class="meas-val">32–34"</span></td>
+          <td><span class="meas-val">40–42"</span></td>
+        </tr>
+        <tr>
+          <td><span class="size-badge xxl">2XL</span></td>
+          <td><span class="meas-val">40–42"</span></td>
+          <td><span class="meas-val">34–36"</span></td>
+          <td><span class="meas-val">42–44"</span></td>
+        </tr>
+        <tr>
+          <td><span class="size-badge xxxl">3XL</span></td>
+          <td><span class="meas-val">42–44"</span></td>
+          <td><span class="meas-val">36–38"</span></td>
+          <td><span class="meas-val">44–46"</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="divider"></div>
+
+    <!-- How to measure -->
+    <div class="how-section">
+      <div class="how-title">📐 How to Measure Yourself</div>
+      <div class="how-grid">
+        <div class="how-item">
+          <div class="how-icon">👙</div>
+          <div class="how-text">
+            <strong>Bust</strong>
+            <span>Measure around the fullest part of your chest, keep tape parallel to floor</span>
+          </div>
+        </div>
+        <div class="how-item">
+          <div class="how-icon">⌛</div>
+          <div class="how-text">
+            <strong>Waist</strong>
+            <span>Measure around the narrowest part of your waist, usually above belly button</span>
+          </div>
+        </div>
+        <div class="how-item">
+          <div class="how-icon">📏</div>
+          <div class="how-text">
+            <strong>Hips</strong>
+            <span>Measure around the fullest part of your hips and seat area</span>
+          </div>
+        </div>
+        <div class="how-item">
+          <div class="how-icon">📌</div>
+          <div class="how-text">
+            <strong>Tip</strong>
+            <span>Stand straight, breathe normally. Don't pull tape too tight or too loose</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-brand">🍀 STYLE RUSH.</div>
+    <div class="footer-note">
+      DM us for fit questions! 💗<br>
+      <span>@stylerush.mavs</span>
+    </div>
+  </div>
+
+  <div class="bottom-bar"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+  async function downloadGuide() {
+    const card = document.getElementById('size-guide');
+    const canvas = await html2canvas(card, {
+      scale: 3,
+      useCORS: true,
+      backgroundColor: '#faf7f2'
+    });
+    const link = document.createElement('a');
+    link.download = 'stylerush-size-guide.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }
+</script>
+</body>
+</html>
